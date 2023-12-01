@@ -34,9 +34,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>cAIptcha.com</h1>
+        <h1>cAIptcha</h1>
         <p>
-          Say goodbye to the hassle of solving captchas! cAIptcha.com uses
+          Say goodbye to the hassle of solving captchas! cAIptcha uses
           cutting-edge AI technology to seamlessly handle captcha challenges for
           you.
         </p>
