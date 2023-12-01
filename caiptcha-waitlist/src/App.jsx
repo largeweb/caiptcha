@@ -1,50 +1,7 @@
-// import React, { useState } from "react";
-// import "./App.css";
-
-// function App() {
-//   const [email, setEmail] = useState("");
-
-//   const handleEmailChange = (event) => {
-//     setEmail(event.target.value);
-//   };
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     alert(`Thank you for joining the CaptchAway.ai waitlist!`);
-//     // Here you would typically handle the form submission, e.g., sending the email to your server
-//   };
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <h1>Welcome to CaptchAway.ai</h1>
-//         <p>
-//           Tired of solving captchas? CaptchAway.ai is your solution. Our
-//           AI-powered tool seamlessly handles captcha verification, letting you
-//           focus on what's important. Join our waitlist and say goodbye to
-//           captcha distractions!
-//         </p>
-//         <form onSubmit={handleSubmit} className="waitlist-form">
-//           <input
-//             type="email"
-//             value={email}
-//             onChange={handleEmailChange}
-//             placeholder="Enter your email"
-//             className="email-input"
-//           />
-//           <button type="submit" className="submit-button">
-//             Join Waitlist
-//           </button>
-//         </form>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React, { useState } from "react";
 import "./App.css";
+
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 function App() {
   const [email, setEmail] = useState("");
@@ -53,10 +10,25 @@ function App() {
     setEmail(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    alert(`Thank you for joining the CaptchAway.ai waitlist!`);
-    // Here you would typically handle the form submission
+
+    try {
+      const response = await fetch(`${baseURL}/submit-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email }),
+      });
+
+      const responseBody = await response.text();
+      alert(responseBody); // Or handle the response in a more user-friendly way
+      setEmail(""); // Reset the email field after successful submission
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while submitting your email.");
+    }
   };
 
   return (
