@@ -38,8 +38,8 @@ function App() {
         <p>
           Say goodbye to the hassle of solving captchas! cAIptcha uses
           cutting-edge AI technology to seamlessly handle captcha challenges for
-          you. This will likely come as a branch off of Playwrite, Puppeteer, or
-          Appium.
+          you. This will likely come as a branch off of Playwright, Puppeteer,
+          or Appium.
         </p>
         <p>
           Join our waitlist today and be among the first to experience the
