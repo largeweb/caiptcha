@@ -107,3 +107,7 @@ p {
 .submit-button:hover {
   background-color: #45a049;
 }
+
+.association {
+  color: #45a049;
+}

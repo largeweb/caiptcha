@@ -57,6 +57,12 @@ function App() {
             Join Waitlist
           </button>
         </form>
+        <h3>
+          Associated with{" "}
+          <a className="association" href="https://wegrow.ing/">
+            <strong>WeGrow</strong>
+          </a>
+        </h3>
       </header>
     </div>
   );
